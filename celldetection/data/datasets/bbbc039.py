@@ -38,10 +38,11 @@ def download_bbbc039(directory):
 
     """
     makedirs(directory, exist_ok=True)
+    
     for url in [
-        'https://data.broadinstitute.org/bbbc/BBBC039/images.zip',
-        'https://data.broadinstitute.org/bbbc/BBBC039/metadata.zip',
-        'https://data.broadinstitute.org/bbbc/BBBC039/masks.zip'
+        'https://github.com/andrewdark1/BBBC039/blob/main/images.zip',
+        'https://github.com/andrewdark1/BBBC039/blob/main/metadata.zip',
+        'https://github.com/andrewdark1/BBBC039/blob/main/masks.zip'
     ]:
         torchvision.datasets.utils.download_and_extract_archive(url, directory)
 
