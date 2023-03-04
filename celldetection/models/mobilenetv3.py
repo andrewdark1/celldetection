@@ -1,6 +1,10 @@
 import torch.nn as nn
 from torchvision.models.mobilenetv3 import InvertedResidualConfig, InvertedResidual, _mobilenet_v3_conf
-from torchvision.models.mobilenetv2 import ConvBNActivation
+#from torchvision.models.mobilenetv2 import ConvBNActivation
+try:
+    from torchvision.ops.misc import Conv2dNormActivation as ConvBNActivation
+except ImportError:
+    from torchvision.models.mobilenetv2 import ConvBNActivation  # for older versions
 from typing import Any, Callable, List, Optional, Sequence
 from functools import partial
 
