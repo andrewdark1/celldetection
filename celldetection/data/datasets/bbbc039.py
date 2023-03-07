@@ -21,6 +21,8 @@ def load(images_directory, masks_directory, names, **label_kwargs):
     if None in (images_directory, masks_directory):
         return None, None, None
     images = [imread(join(images_directory, f.replace('.png', '.tif'))) for f in names]
+    if len(images) < 2:
+        images = [imread(join(images_directory, f.replace('.png', '.jpg'))) for f in names]
     masks = [imread(join(masks_directory, f)) for f in names]
     return images, masks, [measure.label(m[:, :, 0], **label_kwargs) for m in masks]
 
